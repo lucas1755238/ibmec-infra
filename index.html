@@ -39,9 +39,8 @@
   <a href="#membros" data-t="Equipe"><span>III</span></a>
   <a href="#projetos" data-t="Iniciativas"><span>IV</span></a>
   <a href="#eventos" data-t="Agenda"><span>V</span></a>
-  <a href="#jogo" data-t="Minigame"><span>VI</span></a>
-  <a href="#selecao" data-t="Seleção"><span>VII</span></a>
-  <a href="#faq" data-t="Dúvidas"><span>VIII</span></a>
+  <a href="#selecao" data-t="Seleção"><span>VI</span></a>
+  <a href="#faq" data-t="Dúvidas"><span>VII</span></a>
 </nav>
 
 <!-- ========== HEADER (liquid glass) ========== -->
@@ -54,7 +53,7 @@
       <a href="#membros">Equipe</a>
       <a href="#projetos">Iniciativas</a>
       <a href="#eventos">Agenda</a>
-      <a href="#jogo">Minigame</a>
+      <button type="button" class="nav__btn" data-open-game aria-haspopup="dialog" aria-controls="gameModal">Jogos</button>
       <a href="#selecao" class="nav__cta">Processo seletivo</a>
     </nav>
     <button class="tt" id="tt" type="button" aria-pressed="false" aria-label="Ativar tema escuro" title="Tema escuro">
@@ -146,10 +145,10 @@
         <ul><li>Visitas institucionais</li><li>Competições e desafios</li><li>Extensão e educação financeira</li></ul>
       </article>
     </div>
-    <div class="scope reveal">
+    <!-- <div class="scope reveal">
       <span class="scope__l">Escopo técnico</span>
       <ul><li>Energia</li><li>Transportes</li><li>Logística</li><li>Saneamento</li><li>Telecom e infraestrutura digital</li><li>Mobilidade urbana</li><li>Infraestrutura social</li></ul>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -192,59 +191,14 @@
   </div>
 </section>
 
-<!-- ========== VI · MINIGAME ========== -->
-<section class="section section--navy" id="jogo">
-  <div class="container">
-    <header class="sh sh--dark reveal"><span class="sh__n">VI</span><div><p class="kicker">Minigame</p><h2>Mantenha a inflação <em>na meta.</em></h2></div></header>
-    <div class="game">
-      <div class="game__intro reveal">
-        <p>Projetos de infraestrutura têm horizonte longo, e juros e inflação instáveis encarecem o capital de concessões e PPPs. Você é o presidente do Banco Central por um dia: choques de preços afastam a inflação da meta e sua ferramenta é a taxa de juros, que leva meses para fazer efeito. Mantenha a linha dentro da faixa azul pelo maior tempo possível.</p>
-        <ul class="game__how">
-          <li><b>Mouse ou toque</b><span>Mova verticalmente sobre o gráfico: acima, juros mais altos.</span></li>
-          <li><b>Teclado</b><span>Setas ↑ ↓ (ou W e S) ajustam a taxa. P pausa e retoma.</span></li>
-          <li><b>Dica</b><span>Aja cedo: o efeito dos juros demora cerca de três meses.</span></li>
-        </ul>
-        <p class="game__best">Melhor mandato: <b id="gBest">—</b></p>
-        <p class="game__note">Jogo educacional e simulado, sem relação com recomendação de investimento.</p>
-      </div>
-
-      <div class="game__board glass reveal" id="gBoard">
-        <div class="hud">
-          <div><span>Mandato</span><strong id="gTime">0a 0m</strong></div>
-          <div><span>Inflação</span><strong id="gInfl">3,5%</strong></div>
-          <div><span>Selic</span><strong id="gSelic">8,0%</strong></div>
-          <div><span>Credibilidade</span><div class="meter"><i id="gCred"></i></div></div>
-        </div>
-        <div class="game__stage">
-          <canvas id="gCanvas" tabindex="0" aria-label="Gráfico do jogo: linha da inflação, faixa da meta e taxa de juros. Use as setas para cima e para baixo."></canvas>
-          <div class="game__overlay" id="gOverlay">
-            <h3 id="gOvTitle">Banco Central por um dia</h3>
-            <p id="gOvText">Meta de 3,5% com tolerância de 1 ponto para cada lado. Se a inflação ficar fora da faixa, sua credibilidade cai.</p>
-            <div class="game__overlay-btns">
-              <button class="btn btn--light" id="gStart" type="button">Iniciar mandato</button>
-              <button class="btn btn--line" id="gRestart" type="button" hidden>Reiniciar</button>
-            </div>
-          </div>
-        </div>
-        <div class="game__ctrl">
-          <button class="gbtn" id="gDown" type="button">▼ Reduzir juros</button>
-          <button class="gbtn gbtn--pause" id="gPause" type="button" disabled aria-label="Pausar o jogo"><span class="gbtn__ico" aria-hidden="true"></span><span id="gPauseTxt">Pausar</span></button>
-          <button class="gbtn" id="gUp" type="button">▲ Elevar juros</button>
-        </div>
-        <p class="sr-only" id="gLive" role="status" aria-live="polite"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ========== VII · SELEÇÃO ========== -->
-<section class="section" id="selecao">
+<section class="section section--selection" id="selecao">
   <i class="deco d-steps" aria-hidden="true"></i>
   <i class="deco d-dots" aria-hidden="true"></i>
   <i class="deco d-ruler" aria-hidden="true"></i>
   <i class="deco d-cross" aria-hidden="true"></i>
   <div class="container">
-    <header class="sh reveal"><span class="sh__n">VII</span><div><p class="kicker">Processo seletivo</p><h2>Como entrar <em>na liga.</em></h2></div></header>
+    <header class="sh reveal"><span class="sh__n">VI</span><div><p class="kicker">Processo seletivo</p><h2>Como entrar <em>na liga.</em></h2></div></header>
     <p class="lead-p reveal">A seleção é transparente e ocorre, preferencialmente, uma vez por semestre. Critérios, etapas, cronograma, responsáveis e forma de recurso são divulgados antes do início das avaliações.</p>
     <ol class="timeline">
       <li class="reveal"><span class="timeline__n">1</span><h3>Edital</h3><p>Divulgação prévia dos critérios, das etapas, do cronograma e da forma de recurso.</p></li>
@@ -264,17 +218,17 @@
 </section>
 
 <!-- ========== VIII · FAQ ========== -->
-<section class="section section--tint" id="faq">
+<section class="section section--faq" id="faq">
   <i class="deco d-dots" aria-hidden="true"></i>
   <i class="deco d-hruler" aria-hidden="true"></i>
   <i class="deco d-cross" aria-hidden="true"></i>
   <div class="container faq-wrap">
-    <header class="sh reveal"><span class="sh__n">VIII</span><div><p class="kicker">Dúvidas frequentes</p><h2>Perguntas e <em>respostas.</em></h2></div></header>
+    <header class="sh reveal"><span class="sh__n">VII</span><div><p class="kicker">Dúvidas frequentes</p><h2>Perguntas e <em>respostas.</em></h2></div></header>
     <div class="faq">
-      <details class="reveal"><summary>A Ibmec Infra é uma entidade oficial do Ibmec?</summary><p>Não. A liga tem natureza interna e educacional, não possui personalidade jurídica própria e não se apresenta como representante oficial do Ibmec sem autorização. O uso de marca e espaço depende de autorização institucional.</p></details>
-      <details class="reveal"><summary>A liga gerencia dinheiro ou recomenda investimentos?</summary><p>Não. A liga não capta, custodia nem investe recursos reais, e não oferece consultoria ou recomendação personalizada. O portfólio é exclusivamente simulado, e todo conteúdo tem finalidade acadêmica.</p></details>
-      <details class="reveal"><summary>Quem toma as decisões na liga?</summary><p>A Diretoria Executiva, formada pelo Presidente e pelos Diretores, é a única instância deliberativa. Membros, alumni e conselheiros podem ser ouvidos e apresentar propostas, mas não votam nem têm poder de veto.</p></details>
-      <details class="reveal"><summary>Quais setores de infraestrutura a liga estuda?</summary><p>Energia, transportes, logística, saneamento, telecomunicações e infraestrutura digital, mobilidade urbana e infraestrutura social, além de outros segmentos aprovados pela Diretoria Executiva.</p></details>
+      <details class="reveal"><summary>A Ibmec Infra é uma entidade oficial do Ibmec?</summary><div class="faq__answer"><div><p>Não. A liga tem natureza interna e educacional, não possui personalidade jurídica própria e não se apresenta como representante oficial do Ibmec sem autorização. O uso de marca e espaço depende de autorização institucional.</p></div></div></details>
+      <details class="reveal"><summary>A liga gerencia dinheiro ou recomenda investimentos?</summary><div class="faq__answer"><div><p>Não. A liga não capta, custodia nem investe recursos reais, e não oferece consultoria ou recomendação personalizada. O portfólio é exclusivamente simulado, e todo conteúdo tem finalidade acadêmica.</p></div></div></details>
+      <details class="reveal"><summary>Quem toma as decisões na liga?</summary><div class="faq__answer"><div><p>A Diretoria Executiva, formada pelo Presidente e pelos Diretores, é a única instância deliberativa. Membros, alumni e conselheiros podem ser ouvidos e apresentar propostas, mas não votam nem têm poder de veto.</p></div></div></details>
+      <details class="reveal"><summary>Quais setores de infraestrutura a liga estuda?</summary><div class="faq__answer"><div><p>Energia, transportes, logística, saneamento, telecomunicações e infraestrutura digital, mobilidade urbana e infraestrutura social, além de outros segmentos aprovados pela Diretoria Executiva.</p></div></div></details>
     </div>
   </div>
 </section>
@@ -286,12 +240,72 @@
     <div class="wordmark" aria-hidden="true">INFRA</div>
     <div class="footer__in">
       <div class="footer__brand"><svg class="footer__logo" viewBox="0 0 1379 419" aria-hidden="true"><use href="#logo"/></svg><p>Liga Acadêmica de Investimentos em Infraestrutura<br>Ibmec SP · unidade Faria Lima</p></div>
-      <nav class="footer__nav" aria-label="Rodapé"><a href="#sobre">Sobre</a><a href="#atuacao">O que fazemos</a><a href="#membros">Equipe</a><a href="#eventos">Agenda</a><a href="#jogo">Minigame</a><a href="#selecao">Seleção</a></nav>
+      <nav class="footer__nav" aria-label="Rodapé"><button type="button" class="footer__btn" data-open-game>Jogos</button></nav>
     </div>
     <p class="footer__note">Material elaborado para fins exclusivamente educacionais por uma liga estudantil. Não constitui relatório profissional de análise, recomendação, oferta, consultoria ou solicitação de investimento. As informações podem conter estimativas e não substituem avaliação independente.</p>
     <p class="footer__copy">© <span id="year"></span> Ibmec Infra. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<!-- ========== MODAL · MINIGAME ========== -->
+<div class="gmodal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="gModalTitle" hidden>
+  <div class="gmodal__backdrop" id="gBackdrop" aria-hidden="true"></div>
+  <div class="gmodal__dialog section--navy" role="document">
+    <button class="gmodal__close" id="gClose" type="button" aria-label="Fechar tela do jogo" title="Fechar (Esc)">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+      </svg>
+    </button>
+
+    <div class="gmodal__body">
+      <header class="sh sh--dark gmodal__sh">
+        <div>
+          <p class="kicker">Minigame</p>
+          <h2 id="gModalTitle">Mantenha a inflação <em>na meta.</em></h2>
+        </div>
+      </header>
+
+      <div class="game">
+        <div class="game__intro">
+          <p>Projetos de infraestrutura têm horizonte longo, e juros e inflação instáveis encarecem o capital de concessões e PPPs. Você é o presidente do Banco Central por um dia: choques de preços afastam a inflação da meta e sua ferramenta é a taxa de juros, que leva meses para fazer efeito. Mantenha a linha dentro da faixa azul pelo maior tempo possível.</p>
+          <ul class="game__how">
+            <li><b>Mouse ou toque</b><span>Mova verticalmente sobre o gráfico: acima, juros mais altos.</span></li>
+            <li><b>Teclado</b><span>Setas ↑ ↓ (ou W e S) ajustam a taxa. P pausa e retoma.</span></li>
+            <li><b>Dica</b><span>Aja cedo: o efeito dos juros demora cerca de três meses.</span></li>
+          </ul>
+          <p class="game__best">Melhor mandato: <b id="gBest">—</b></p>
+          <p class="game__note">Jogo educacional e simulado, sem relação com recomendação de investimento.</p>
+        </div>
+
+        <div class="game__board glass" id="gBoard">
+          <div class="hud">
+            <div><span>Mandato</span><strong id="gTime">0a 0m</strong></div>
+            <div><span>Inflação</span><strong id="gInfl">3,5%</strong></div>
+            <div><span>Selic</span><strong id="gSelic">8,0%</strong></div>
+            <div><span>Credibilidade</span><div class="meter"><i id="gCred"></i></div></div>
+          </div>
+          <div class="game__stage">
+            <canvas id="gCanvas" tabindex="0" aria-label="Gráfico do jogo: linha da inflação, faixa da meta e taxa de juros. Use as setas para cima e para baixo."></canvas>
+            <div class="game__overlay" id="gOverlay">
+              <h3 id="gOvTitle">Banco Central por um dia</h3>
+              <p id="gOvText">Meta de 3,5% com tolerância de 1 ponto para cada lado. Se a inflação ficar fora da faixa, sua credibilidade cai.</p>
+              <div class="game__overlay-btns">
+                <button class="btn btn--light" id="gStart" type="button">Iniciar mandato</button>
+                <button class="btn btn--line" id="gRestart" type="button" hidden>Reiniciar</button>
+              </div>
+            </div>
+          </div>
+          <div class="game__ctrl">
+            <button class="gbtn" id="gDown" type="button">▼ Reduzir juros</button>
+            <button class="gbtn gbtn--pause" id="gPause" type="button" disabled aria-label="Pausar o jogo"><span class="gbtn__ico" aria-hidden="true"></span><span id="gPauseTxt">Pausar</span></button>
+            <button class="gbtn" id="gUp" type="button">▲ Elevar juros</button>
+          </div>
+          <p class="sr-only" id="gLive" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 /* =========================================================
@@ -299,6 +313,30 @@
    Dados editáveis (equipe, eventos, iniciativas) logo abaixo.
    Conteúdo baseado no Estatuto Institucional da liga.
    ========================================================= */
+
+/* ---------- FAQ: anima fechamento antes de ocultar o conteÃºdo ---------- */
+document.querySelectorAll(".faq details").forEach(detail => {
+  const summary = detail.querySelector("summary");
+  let closeTimer;
+
+  summary.addEventListener("click", event => {
+    if (!detail.open) return;
+
+    event.preventDefault();
+    clearTimeout(closeTimer);
+
+    if (detail.classList.contains("is-closing")) {
+      detail.classList.remove("is-closing");
+      return;
+    }
+
+    detail.classList.add("is-closing");
+    closeTimer = setTimeout(() => {
+      detail.open = false;
+      detail.classList.remove("is-closing");
+    }, 450);
+  });
+});
 
 /* ---------- DADOS ---------- */
 /* Equipe: para cada pessoa, preencha "linkedin" (URL do perfil) e "photo" (caminho de uma imagem
@@ -815,14 +853,16 @@ function createSim(seed) {
 (function game() {
   const cv = $("#gCanvas"); if (!cv) return;
   const ctx = cv.getContext("2d"), board = $("#gBoard"), overlay = $("#gOverlay");
+  const modal = $("#gameModal"), closeBtn = $("#gClose"), backdrop = $("#gBackdrop"), openBtns = $$("[data-open-game]");
   const startBtn = $("#gStart"), restartBtn = $("#gRestart"), pauseBtn = $("#gPause"), pauseTxt = $("#gPauseTxt");
   const el = { time: $("#gTime"), infl: $("#gInfl"), selic: $("#gSelic"), cred: $("#gCred"), best: $("#gBest"), ovT: $("#gOvTitle"), ovP: $("#gOvText"), live: $("#gLive") };
-  const MONTH = 0.6, WINDOW = 48;                 // segundos por mês simulado; meses visíveis no gráfico
+  const MONTH = 0.6, WINDOW = 48;
   const PAD = { l: 12, r: 60, t: 24, b: 28 };
   const INTRO_T = "Banco Central por um dia";
   const INTRO_P = "Meta de 3,5% com tolerância de 1 ponto para cada lado. Se a inflação ficar fora da faixa, sua credibilidade cai.";
-  let sim = createSim((Math.random() * 1e9) | 0), state = "idle", inputS = 8;   // idle | run | paused | over
+  let sim = createSim((Math.random() * 1e9) | 0), state = "idle", inputS = 8;
   let W = 0, H = 0, running = false, last = null, hudAcc = 0, active = false, inView = false;
+  let lastTrigger = null, closeTimer = 0;
   const keys = { up: 0, down: 0 };
 
   const fmtTime = m => { const t = Math.floor(m); return `${Math.floor(t / 12)}a ${t % 12}m`; };
@@ -838,8 +878,8 @@ function createSim(seed) {
     draw();
   }
   const plotW = () => W - PAD.l - PAD.r, plotH = () => H - PAD.t - PAD.b;
-  const yPi = v => PAD.t + (1 - v / 8) * plotH();                 // inflação: 0% a 8%
-  const yS = v => PAD.t + (1 - (v - 2) / 14) * plotH();           // Selic: 2% a 16%
+  const yPi = v => PAD.t + (1 - v / 8) * plotH();
+  const yS = v => PAD.t + (1 - (v - 2) / 14) * plotH();
 
   function draw() {
     if (!W || !H) return;
@@ -867,7 +907,7 @@ function createSim(seed) {
     ctx.textAlign = "left"; ctx.fillStyle = "rgba(147,181,255,.8)"; ctx.fillText("SELIC", W - PAD.r + 6, PAD.t - 10);
     ctx.fillStyle = "rgba(255,255,255,.45)"; ctx.fillText("INFLAÇÃO 12M", PAD.l + 4, PAD.t - 10);
 
-    // séries (a janela mostra os últimos WINDOW meses)
+    // séries
     const T1 = Math.max(sim.t, WINDOW), T0 = T1 - WINDOW, X = t => PAD.l + (t - T0) / WINDOW * pw;
     ctx.save(); ctx.beginPath(); ctx.rect(PAD.l, PAD.t - 4, pw, ph + 8); ctx.clip();
     ctx.beginPath(); sim.hs.forEach(([t, v], i) => { const x = X(t), y = yS(v); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
@@ -885,7 +925,7 @@ function createSim(seed) {
     const hx = X(sim.t), hy = yPi(clamp(sim.pi, -1, 9));
     ctx.fillStyle = sim.inBand ? "#fff" : "#ffb48a"; ctx.fillRect(hx - 4, hy - 4, 8, 8);
 
-    // alça da Selic (eixo direito)
+    // alça da Selic
     const sy = yS(inputS);
     ctx.strokeStyle = "rgba(255,255,255,.35)"; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(PAD.l + pw, sy + .5); ctx.lineTo(W - PAD.r + 8, sy + .5); ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = "#fff"; ctx.fillRect(PAD.l + pw + 8, sy - 9, 46, 18);
@@ -903,7 +943,6 @@ function createSim(seed) {
     }
   }
 
-  // painel de dados. A barra de credibilidade usa uma variável CSS com padrão 1 (cheia).
   function hud() {
     el.time.textContent = fmtTime(sim.t);
     el.infl.textContent = pct(sim.pi) + "%"; el.infl.classList.toggle("is-out", !sim.inBand);
@@ -912,7 +951,6 @@ function createSim(seed) {
     el.cred.parentNode.classList.toggle("is-low", sim.cred < 35);
   }
 
-  // interface conforme o estado (sobreposição, botão de pausa, foco do toque)
   function ui() {
     const run = state === "run", pau = state === "paused";
     board.classList.toggle("is-playing", run);
@@ -927,7 +965,7 @@ function createSim(seed) {
 
   function frame(now) {
     if (state !== "run") { running = false; return; }
-    if (last === null) last = now;                              // 1º quadro: usa o relógio do próprio rAF
+    if (last === null) last = now;
     const dtS = clamp((now - last) / 1000, 0, 0.05); last = now;
     if (keys.up) inputS += 7 * dtS; if (keys.down) inputS -= 7 * dtS; inputS = clamp(inputS, 2, 16);
     const prevEvt = sim.evtAt;
@@ -949,7 +987,7 @@ function createSim(seed) {
     if (state !== "run") return;
     state = "paused"; running = false; keys.up = keys.down = 0;
     el.ovT.textContent = "Jogo pausado";
-    el.ovP.textContent = `Mandato parado em ${fmtTime(sim.t)}. O jogo também pausa sozinho quando você sai desta tela.`;
+    el.ovP.textContent = `Mandato parado em ${fmtTime(sim.t)}.`;
     startBtn.textContent = "Continuar";
     hud(); draw(); ui();
     el.live.textContent = "Jogo pausado.";
@@ -970,7 +1008,38 @@ function createSim(seed) {
     el.live.textContent = `Fim de jogo. Mandato de ${fmtTime(months)}.`;
   }
 
-  // controle por ponteiro (mouse ou toque): altura do cursor = taxa Selic
+  /* ---- Controle do Modal (Popup) ---- */
+  function openModal(e) {
+    lastTrigger = e ? e.currentTarget : null;
+    clearTimeout(closeTimer);
+    setMenu(false); // fecha o menu mobile se estiver aberto
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    inView = true; active = true;
+    requestAnimationFrame(() => {
+      modal.classList.add("is-open");
+      resize(); hud();
+      closeBtn.focus({ preventScroll: true });
+    });
+  }
+
+  function closeModal() {
+    if (modal.hidden) return;
+    if (state === "run") pause();
+    inView = false; active = false;
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+    closeTimer = setTimeout(() => {
+      modal.hidden = true;
+      if (lastTrigger) lastTrigger.focus({ preventScroll: true });
+    }, REDUCE ? 0 : 350);
+  }
+
+  openBtns.forEach(btn => btn.addEventListener("click", openModal));
+  closeBtn.addEventListener("click", closeModal);
+  backdrop.addEventListener("click", closeModal);
+
+  // controle por ponteiro
   function pointer(e) {
     if (state === "paused") return;
     const r = cv.getBoundingClientRect(), y = e.clientY - r.top;
@@ -982,46 +1051,37 @@ function createSim(seed) {
 
   // teclado e botões
   const keyMap = { ArrowUp: "up", w: "up", W: "up", ArrowDown: "down", s: "down", S: "down" };
-  board.addEventListener("pointerenter", () => { active = true; });
-  board.addEventListener("pointerleave", () => { active = false; });
-  board.addEventListener("focusin", () => { active = true; });
-  board.addEventListener("focusout", () => { active = false; });
   addEventListener("keydown", e => {
-    if (e.key === "p" || e.key === "P") {                      // P: pausa e retoma
-      if (state === "run" && active) { pause(); e.preventDefault(); }
-      else if (state === "paused" && inView) { resume(); e.preventDefault(); }
+    if (!inView) return;
+    if (e.key === "Escape") { e.preventDefault(); closeModal(); return; }
+    if (e.key === "p" || e.key === "P") {
+      if (state === "run") { pause(); e.preventDefault(); }
+      else if (state === "paused") { resume(); e.preventDefault(); }
       return;
     }
-    if (e.key === "Escape" && state === "run" && active) { pause(); return; }
     const k = keyMap[e.key];
-    if (k && state === "run" && active) { keys[k] = 1; e.preventDefault(); }
-    else if ((e.key === "Enter" || e.key === " ") && state !== "run" && document.activeElement === cv) { e.preventDefault(); state === "paused" ? resume() : begin(); }
+    if (k && state === "run") { keys[k] = 1; e.preventDefault(); }
+    else if ((e.key === "Enter" || e.key === " ") && state !== "run" && document.activeElement === cv) {
+      e.preventDefault(); state === "paused" ? resume() : begin();
+    }
   });
   addEventListener("keyup", e => { const k = keyMap[e.key]; if (k) keys[k] = 0; });
   [["#gUp", "up", 0.5], ["#gDown", "down", -0.5]].forEach(([sel, k, step]) => {
     const b = $(sel);
     b.addEventListener("pointerdown", () => { if (state === "run") keys[k] = 1; });
     ["pointerup", "pointerleave", "pointercancel"].forEach(ev => b.addEventListener(ev, () => { keys[k] = 0; }));
-    b.addEventListener("click", e => { if (e.detail === 0 && state !== "paused") { inputS = clamp(inputS + step, 2, 16); if (state !== "run") { hud(); draw(); } } });   // teclado
+    b.addEventListener("click", e => { if (e.detail === 0 && state !== "paused") { inputS = clamp(inputS + step, 2, 16); if (state !== "run") { hud(); draw(); } } });
   });
   startBtn.addEventListener("click", () => state === "paused" ? resume() : begin());
   restartBtn.addEventListener("click", begin);
   pauseBtn.addEventListener("click", () => state === "run" ? pause() : resume());
 
-  // pausa automática: sair da tela, trocar de aba ou perder o foco da janela
-  let synced = false;
-  new IntersectionObserver(([e]) => {
-    inView = e.intersectionRatio >= 0.15;
-    if (!inView && state === "run") pause();
-    if (inView && !synced) { synced = true; resize(); hud(); }   // 1ª vez que o painel aparece: redesenha e atualiza a barra (garante o estado inicial correto)
-  }, { threshold: [0, 0.15, 0.3] }).observe(board);
-  addEventListener("pageshow", () => { if (state !== "run") { hud(); draw(); } });   // volta pelo botão "voltar" (cache do navegador)
   document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
   addEventListener("blur", () => { keys.up = keys.down = 0; pause(); });
 
   new ResizeObserver(debounce(resize, 80)).observe(cv);
   el.ovT.textContent = INTRO_T; el.ovP.textContent = INTRO_P;
-  ui(); hud(); resize();
+  ui(); hud();
 })();
 
 /* ---------- FORMULÁRIO DE E-MAIL ---------- */

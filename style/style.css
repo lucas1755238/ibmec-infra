@@ -896,6 +896,14 @@ html[data-theme="dark"] .tt .tt__sun {
     background: radial-gradient(700px 420px at 0% 0%, rgb(var(--glow)/calc(var(--glow-a) * 1.1)), transparent 70%), var(--bg2)
 }
 
+.section--selection {
+    background: radial-gradient(760px 460px at 100% 0%, rgb(var(--glow)/.12), transparent 70%), var(--ice)
+}
+
+html[data-theme="dark"] .section--selection {
+    background: radial-gradient(760px 460px at 100% 0%, rgba(59, 130, 246, .18), transparent 70%), #0c1d3f
+}
+
 .section--navy {
     background: radial-gradient(900px 600px at 8% 0%, rgba(37, 99, 235, .55), transparent 70%), radial-gradient(800px 600px at 100% 55%, rgba(59, 130, 246, .3), transparent 70%), linear-gradient(160deg, var(--n950), var(--n800));
     color: #fff
@@ -1190,12 +1198,21 @@ html[data-theme="dark"] .tt .tt__sun {
     gap: 24px;
     padding: 30px 12px;
     border-bottom: 1px solid var(--rule);
-    transition: background .3s, padding .35s var(--ease)
+    transition: background .4s var(--ease), transform .4s var(--ease)
 }
 
 .charter li:hover {
     background: var(--hover-soft);
-    padding-left: 26px
+    transform: translateX(8px)
+}
+
+.js .charter li.reveal.is-visible {
+    transition: background .4s var(--ease), transform .4s var(--ease);
+    transition-delay: 0s
+}
+
+.js .charter li.reveal.is-visible:hover {
+    transform: translateX(8px)
 }
 
 .charter__n {
@@ -2147,7 +2164,8 @@ html[data-theme="dark"] .tt .tt__sun {
 }
 
 .faq details {
-    border-bottom: 1px solid var(--rule)
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden
 }
 
 .faq summary {
@@ -2181,11 +2199,64 @@ html[data-theme="dark"] .tt .tt__sun {
     transform: rotate(135deg)
 }
 
+.faq__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .45s var(--ease)
+}
+
+.faq details[open] .faq__answer {
+    grid-template-rows: 1fr
+}
+
+.faq details.is-closing .faq__answer {
+    grid-template-rows: 0fr
+}
+
+.faq__answer>div {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .3s ease, transform .4s var(--ease)
+}
+
+.faq details[open] .faq__answer>div {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+.faq details.is-closing .faq__answer>div {
+    opacity: 0;
+    transform: translateY(-8px)
+}
+
+.faq details.is-closing summary::after {
+    transform: rotate(0)
+}
+
 .faq details p {
     padding: 0 6px 30px;
     max-width: 720px;
     font: 400 1.25rem/1.6 var(--garamond);
     color: var(--muted)
+}
+
+.faq details[open] p {
+    animation: faqExpand .4s var(--ease) both
+}
+
+@keyframes faqExpand {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+        clip-path: inset(0 0 100%)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0)
+    }
 }
 
 /* ---------- Rodapé ---------- */
@@ -2623,4 +2694,170 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb {
 
 html[data-theme="dark"]::-webkit-scrollbar-thumb:hover {
     background-color: rgba(147, 181, 255, .88);
+}
+
+/* ---------- Botões de navegação ("Jogos") no Header e Footer ---------- */
+.nav__btn {
+    position: relative;
+    padding: 6px 0;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+    cursor: var(--cur-hand);
+}
+
+.nav__btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .35s var(--ease);
+}
+
+.nav__btn:hover::after,
+.nav__btn:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.footer__btn {
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+    transition: border-color .25s, color .25s;
+    cursor: var(--cur-hand);
+}
+
+.footer__btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+@media (max-width: 860px) {
+    .nav__btn {
+        padding: 18px 0;
+        text-align: left;
+        border-bottom: 1px solid var(--rule);
+    }
+    .nav__btn::after {
+        display: none;
+    }
+}
+
+/* ---------- Modal (Popup) do Minigame ---------- */
+.gmodal {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s var(--ease), visibility .35s;
+}
+
+.gmodal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gmodal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 9, 23, .78);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.lite .gmodal__backdrop {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(3, 9, 23, .92);
+}
+
+.gmodal__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, 100%);
+    max-height: calc(100svh - 48px);
+    overflow-y: auto;
+    border: 1px solid rgba(147, 181, 255, .35);
+    box-shadow: 0 32px 80px -20px rgba(0, 0, 0, .85), inset 0 1px 0 rgba(255, 255, 255, .35);
+    transform: translateY(20px) scale(.98);
+    transition: transform .4s var(--ease);
+}
+
+.gmodal.is-open .gmodal__dialog {
+    transform: none;
+}
+
+.gmodal__body {
+    padding: 52px 56px 56px;
+}
+
+.gmodal__sh {
+    grid-template-columns: 1fr;
+    margin-bottom: 44px;
+    padding-top: 22px;
+    padding-right: 56px;
+}
+
+.gmodal__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: rgba(5, 15, 36, .45);
+    border: 1px solid rgba(255, 255, 255, .4);
+    transition: background .25s, color .25s, transform .25s var(--ease);
+    cursor: var(--cur-hand);
+}
+
+.gmodal__close:hover,
+.gmodal__close:focus-visible {
+    background: #fff;
+    color: var(--n900);
+}
+
+@media (max-width: 1060px) {
+    .gmodal__body {
+        padding: 40px 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .gmodal {
+        padding: 10px;
+    }
+    .gmodal__dialog {
+        max-height: calc(100svh - 20px);
+    }
+    .gmodal__body {
+        padding: 28px 18px 24px;
+    }
+    .gmodal__close {
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+    }
+    .gmodal__sh {
+        margin-bottom: 28px;
+        padding-top: 16px;
+    }
 }
