@@ -766,19 +766,13 @@ html[data-theme="dark"] .tt .tt__sun {
     background: rgba(255, 255, 255, .45)
 }
 
-.hero__lead {
-    max-width: 660px;
-    margin-top: 22px;
-    font: 400 clamp(1.15rem, 1.8vw, 1.45rem)/1.5 var(--garamond);
-    color: rgba(255, 255, 255, .86)
-}
-
 .hero__actions {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 34px
+    /* Reserva a área antes ocupada pelo texto de apoio e mantém os CTAs mais baixos. */
+    margin-top: clamp(5rem, 40vw, 8rem)
 }
 
 .hero__cue {
