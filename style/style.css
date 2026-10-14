@@ -38,6 +38,9 @@
     --glow-b: .045;
     --sp: rgba(10, 31, 68, .5);
     --sp-hover: #0a1f44;
+    --sel: #dbe8fd;            /* cor-base da seção "Processo seletivo" */
+    --hair: var(--strong);     /* fio fino entre o carrossel e a seção Sobre */
+    --blend: clamp(80px, 15vw, 200px);   /* altura do degradê entre seções */
     --cur-arrow: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2221%22%20viewBox%3D%220%200%2016%2021%22%3E%3Cpath%20d%3D%22M2.5%201.9V16.6L6.1%2013.4L8.6%2018.9L11.2%2017.7L8.7%2012.3H13.5Z%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M2.5%201.9V16.6L6.1%2013.4L8.6%2018.9L11.2%2017.7L8.7%2012.3H13.5Z%22%20fill%3D%22%23000%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.3%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 2 2, default;
     --cur-hand: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2222%22%20height%3D%2223%22%20viewBox%3D%220.6%200.6%2025%2025%22%3E%3Cpath%20d%3D%22M7.7%203.8A2.2%202.2%200%200%201%2012.1%203.8V9.4A2.05%202.05%200%200%201%2016.2%209.7A2%202%200%200%201%2020.2%2010.7A1.8%201.8%200%200%201%2023.8%2012V16.3C23.8%2019.7%2022.3%2021.5%2020.7%2023.2L11.9%2023.2C10.4%2021.3%207.5%2018.5%204.2%2015.6A1.65%201.65%200%200%201%206.7%2013.4L7.7%2014.5Z%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.8%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M7.7%203.8A2.2%202.2%200%200%201%2012.1%203.8V9.4A2.05%202.05%200%200%201%2016.2%209.7A2%202%200%200%201%2020.2%2010.7A1.8%201.8%200%200%201%2023.8%2012V16.3C23.8%2019.7%2022.3%2021.5%2020.7%2023.2L11.9%2023.2C10.4%2021.3%207.5%2018.5%204.2%2015.6A1.65%201.65%200%200%201%206.7%2013.4L7.7%2014.5Z%22%20fill%3D%22%23000%22%20stroke%3D%22%23000%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M12.1%2011.8V16.2M16.2%2012.2V16.4M20.2%2012.9V16.5%22%20stroke%3D%22%23fff%22%20stroke-width%3D%22.95%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E") 8 2, pointer;
     --cur-text: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2220%22%20viewBox%3D%220%200%2012%2020%22%3E%3Cpath%20d%3D%22M3.5%202.5H8.5M6%202.5V17.5M3.5%2017.5H8.5%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.6%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M3.5%202.5H8.5M6%202.5V17.5M3.5%2017.5H8.5%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") 6 10, text;
@@ -65,6 +68,8 @@ html[data-theme="dark"] {
     --glow-b: .1;
     --sp: rgba(219, 232, 253, .5);
     --sp-hover: #fff;
+    --sel: #0c1d3f;
+    --hair: rgba(147, 181, 255, .26);
 }
 
 *,
@@ -816,6 +821,11 @@ html[data-theme="dark"] .tt .tt__sun {
     border-bottom: 1px solid var(--strong)
 }
 
+html[data-theme="dark"] .sponsors {
+    border-bottom: 0;
+    background: linear-gradient(90deg, transparent, var(--hair) 16%, var(--hair) 84%, transparent) bottom / 100% 1px no-repeat, var(--bg)
+}
+
 .sponsors__label {
     display: grid;
     place-items: center;
@@ -897,11 +907,11 @@ html[data-theme="dark"] .tt .tt__sun {
 }
 
 .section--selection {
-    background: radial-gradient(760px 460px at 100% 0%, rgb(var(--glow)/.12), transparent 70%), var(--ice)
+    background: radial-gradient(760px 460px at 100% 0%, rgb(var(--glow)/.12), transparent 70%), var(--sel)
 }
 
 html[data-theme="dark"] .section--selection {
-    background: radial-gradient(760px 460px at 100% 0%, rgba(59, 130, 246, .18), transparent 70%), #0c1d3f
+    background: radial-gradient(760px 460px at 100% 0%, rgba(59, 130, 246, .18), transparent 70%), var(--sel)
 }
 
 .section--navy {
@@ -2268,7 +2278,7 @@ html[data-theme="dark"] .section--selection {
 }
 
 html[data-theme="dark"] .footer {
-    border-top: 1px solid rgba(147, 181, 255, .15)
+    background: linear-gradient(90deg, transparent, rgba(147, 181, 255, .24) 20%, rgba(147, 181, 255, .24) 80%, transparent) top / 100% 1px no-repeat, var(--n950)
 }
 
 .wordmark {
@@ -2860,4 +2870,131 @@ html[data-theme="dark"]::-webkit-scrollbar-thumb:hover {
         margin-bottom: 28px;
         padding-top: 16px;
     }
+}
+
+/* =====================================================
+   Transições suaves entre as seções
+   -----------------------------------------------------
+   (No tema escuro vale para todas as seções; no tema claro só para a seção "Processo seletivo",
+   que se funde com a seção anterior e com a seguinte. As demais mantêm as bordas nítidas.)
+   Cada seção ganha duas camadas de mistura:
+     ::before (topo)  parte da cor-base da PRÓPRIA seção e some para dentro;
+     ::after  (base)  parte da cor-base da PRÓXIMA seção e some para dentro.
+   No encontro de duas seções as cores coincidem, então não existe mais linha:
+   o degradê se espalha por --blend px, com curva suave (sem "quebra" nas pontas)
+   e também esconde o corte dos brilhos radiais nas bordas.
+   Se mudar a ordem das seções, atualize o mapa --own / --nxt abaixo.
+   ===================================================== */
+@property --fc {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: transparent
+}
+
+.section { --own: var(--bg); --nxt: var(--bg) }
+#sobre    { --own: var(--bg);   --nxt: var(--bg2)  }
+#atuacao  { --own: var(--bg2);  --nxt: var(--bg)   }
+#membros  { --own: var(--bg);   --nxt: var(--n950) }
+#projetos { --own: var(--n950); --nxt: var(--bg)   }
+#eventos  { --own: var(--bg);   --nxt: var(--sel)  }
+#selecao  { --own: var(--sel);  --nxt: var(--bg)   }
+#faq      { --own: var(--bg);   --nxt: var(--n950) }
+
+html[data-theme="dark"] .section::before,
+html[data-theme="dark"] .section::after,
+html[data-theme="dark"] .hero::after,
+html:not([data-theme="dark"]) #selecao::before,
+html:not([data-theme="dark"]) #selecao::after,
+html:not([data-theme="dark"]) #eventos::after,
+html:not([data-theme="dark"]) #faq::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--blend);
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(var(--dir), var(--fc), transparent)
+}
+
+html[data-theme="dark"] .section::before,
+html:not([data-theme="dark"]) #selecao::before,
+html:not([data-theme="dark"]) #faq::before {
+    --fc: var(--own);
+    --dir: to bottom;
+    top: 0
+}
+
+html[data-theme="dark"] .section::after,
+html:not([data-theme="dark"]) #selecao::after,
+html:not([data-theme="dark"]) #eventos::after {
+    --fc: var(--nxt);
+    --dir: to top;
+    bottom: 0
+}
+
+/* Hero: no tema escuro o rodapé do hero se dissolve na cor do carrossel de patrocinadores.
+   No tema claro o hero continua com a borda nítida (o ícone de rolagem é branco). */
+html[data-theme="dark"] .hero::after {
+    z-index: 1;
+    bottom: 0;
+    height: clamp(110px, 18vh, 200px);
+    --dir: to top;
+    --fc: var(--bg)
+}
+
+html[data-theme="dark"] .deco,
+html:not([data-theme="dark"]) #eventos .deco,
+html:not([data-theme="dark"]) #selecao .deco,
+html:not([data-theme="dark"]) #faq .deco {
+    z-index: 1
+}
+
+/* curva suave (smoothstep) no lugar do degradê linear */
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+    html[data-theme="dark"] .section::before,
+    html[data-theme="dark"] .section::after,
+    html[data-theme="dark"] .hero::after,
+    html:not([data-theme="dark"]) #selecao::before,
+    html:not([data-theme="dark"]) #selecao::after,
+    html:not([data-theme="dark"]) #eventos::after,
+    html:not([data-theme="dark"]) #faq::before {
+        background: linear-gradient(var(--dir),
+            var(--fc) 0%,
+            color-mix(in srgb, var(--fc) 95.7%, transparent) 12.5%,
+            color-mix(in srgb, var(--fc) 84.4%, transparent) 25%,
+            color-mix(in srgb, var(--fc) 68.4%, transparent) 37.5%,
+            color-mix(in srgb, var(--fc) 50%, transparent) 50%,
+            color-mix(in srgb, var(--fc) 31.6%, transparent) 62.5%,
+            color-mix(in srgb, var(--fc) 15.6%, transparent) 75%,
+            color-mix(in srgb, var(--fc) 4.3%, transparent) 87.5%,
+            transparent 100%)
+    }
+}
+
+/* na troca de tema as camadas acompanham a cor da seção em vez de "piscar" */
+html.theme-anim .section::before,
+html.theme-anim .section::after,
+html.theme-anim .hero::after {
+    transition: --fc .35s !important
+}
+
+/* =====================================================
+   TEMA CLARO · bordas abruptas nas partes azul-escuro
+   -----------------------------------------------------
+   Seção IV (Iniciativas) e rodapé terminam/começam em corte seco: branco de um lado, azul-escuro do outro.
+   O brilho azul suave de canto que as seções brancas vizinhas têm de fábrica (o "véu" que escorria
+   para dentro da borda escura) foi retirado só desses três encontros, e só no tema claro:
+     Equipe  (acima da IV)     → sem brilho no canto inferior esquerdo
+     Agenda  (abaixo da IV)    → sem brilho no canto superior direito
+     Dúvidas (acima do rodapé) → sem brilho no canto inferior esquerdo
+   O brilho do canto oposto de cada seção continua. O tema escuro não é afetado.
+   ===================================================== */
+html:not([data-theme="dark"]) #membros,
+html:not([data-theme="dark"]) #faq {
+    background: radial-gradient(760px 440px at 100% 0%, rgb(var(--glow)/var(--glow-a)), transparent 70%), var(--bg)
+}
+
+html:not([data-theme="dark"]) #eventos {
+    background: radial-gradient(640px 420px at 0% 100%, rgb(var(--glow)/var(--glow-b)), transparent 70%), var(--bg)
 }
