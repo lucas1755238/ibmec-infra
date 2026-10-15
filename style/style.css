@@ -2353,9 +2353,60 @@ html[data-theme="dark"] .footer {
     color: rgba(255, 255, 255, .55)
 }
 
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding-top: 16px;
+    font-size: .78rem;
+}
+
 .footer__copy {
-    padding-top: 14px;
-    font-size: .78rem
+    color: rgba(255, 255, 255, .65);
+}
+
+.footer__credit {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    color: rgba(255, 255, 255, .55);
+}
+
+.footer__credit strong {
+    font-weight: 500;
+    color: rgba(255, 255, 255, .85);
+}
+
+.footer__sep {
+    color: var(--b500);
+}
+
+.footer__credit a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
+    color: rgba(255, 255, 255, .75);
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color .25s, border-color .25s;
+}
+
+.footer__credit svg {
+    fill: currentColor;
+    flex: none;
+    transform: translateY(-1px);
+}
+
+.footer__credit a:hover,
+.footer__credit a:focus-visible {
+    color: var(--b300);
+    border-color: var(--b300);
 }
 
 /* ---------- Revelação ---------- */
